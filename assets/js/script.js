@@ -8,6 +8,7 @@ function generatePassword(){
   var passwordLengthPrompt = window.prompt('Please choose password length between 8 - 128 characters long.');
   var characters = "";
 
+  // ask user for length of desired password
   if (passwordLengthPrompt >= 8 && passwordLengthPrompt <= 128){
     passwordLength = passwordLengthPrompt;
   } else{
@@ -26,6 +27,7 @@ function generatePassword(){
     case "N":
     case "n":
       break;
+    // if invalid response, rerun generatePassword()
     default:
       window.alert("You did not pick a valid option. Try again.");
     generatePassword();
@@ -42,6 +44,7 @@ function generatePassword(){
     case "N":
     case "n":
       break;
+    // if invalid response, rerun generatePassword()
     default:
       window.alert("You did not pick a valid option. Try again.");
       generatePassword();
@@ -59,6 +62,7 @@ function generatePassword(){
     case "N":
     case "n":
       break;
+    // if invalid response, rerun generatePassword()
     default:
       window.alert('You did not pick a valid option. Try again.');
       generatePassword();
@@ -75,15 +79,18 @@ function generatePassword(){
     case "N":
     case "n":
       break;
+    // if invalid response, rerun generatePassword()
     default:
       window.alert("You did not pick a valid option. Try again.");
       generatePassword();
   };
 
-  // for loop to randomize password character order
+  // for loop to randomize selected password characters
   for (var i = 0; i < passwordLength; i++){
     password += characters.charAt(Math.floor(Math.random() * characters.length));
   }
+
+  // provide selected criterias to password
   return password;
 };
 
@@ -101,4 +108,3 @@ function writePassword(){
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
